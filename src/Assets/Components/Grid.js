@@ -23,21 +23,28 @@ export default class Grid extends React.Component {
         
     }
 
+
     allowDrop = ev =>{
         ev.preventDefault();
     }
 
     onDrop = (e) =>{
+      if ( e.length === 0 ) {
+        return;
+      }
         e.preventDefault();
         let {Container} = this.state;
-        const data = e.dataTransfer.getData("text/plain");
+        const data = e.dataTransfer.getData("comp");
+        console.log(e.dataTransfer.types);
+        console.log(data);
         Container.push(<Form><Inputwadia type={data} id={"T"+(Container.length+1)}/></Form>);
         this.setState({ Container });
+        console.log("comp dropped");
     }
  render(){
     const {Container} = this.state; 
     return (
-    <Col id={1} md={4} onDragOver={this.allowDrop} onDrop={this.onDrop} style={styles.Drag}>
+    <Col id={this.props.id} md={this.props.size} onDragOver={this.allowDrop} onDrop={this.onDrop} style={styles.Drag}>
         {
                   Container.map( itm =>{
                     return itm;

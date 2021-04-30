@@ -1,13 +1,14 @@
 import React from 'react'
 import Grid from './Grid'
 import NavBar from './NavBar'
-import {Container , Col , Row} from 'react-bootstrap'
+import {Container , Row} from 'react-bootstrap'
+import nextId from "react-id-generator";
 export default class Main extends React.Component {
 
     constructor(props){
         super(props)
         this.state = {
-          Container1 : [],
+          main : [],
         }
         
     }
@@ -18,25 +19,28 @@ export default class Main extends React.Component {
 
     onDropGrid = (e) =>{
         e.preventDefault();
-        let {Container1} = this.state;
+        console.log(e.dataTransfer.types);
+        console.log("grid dropped");
+        let {main} = this.state;
         const data = e.dataTransfer.getData("text/plain");
-        Container1.push(<Grid id={"T"+(Container1.length+1)}/>);
-        this.setState({ Container1 });
+        console.log(data);
+        main.push(<Grid id={nextId('Section-')} size={4}/>);
+        this.setState({ main });
     }
     render(){
-        const {Container1} = this.state;
+        const {main} = this.state;
     return (
         <React.Fragment>
-        <div style={{display: 'block' ,width:'100%'}}>
-        <nav>
+        <div id="block" style={{display: 'block' ,width:'100%'}}>
+        <nav id="nav">
         <NavBar/>
         </nav>
-        <div style={{height:'90%', overflow: 'scroll initial', border :"solid 0.5px blue", borderStyle: 'dashed'}} onDragOver={this.allowDropGrid} onDrop={this.onDropGrid}>
-        <Container>
-            <Row>
+        <div id="main" style={{height:'90%', overflow: 'scroll initial', border :"solid 0.5px blue", borderStyle: 'dashed'}} onDragOver={this.allowDropGrid} onDrop={this.onDropGrid}>
+        <Container id={nextId('Container-')}>
+            <Row id={nextId('Row-')}>
         {
            
-           Container1.map( itm =>{
+           main.map( itm =>{
             return itm;
           })    
         }

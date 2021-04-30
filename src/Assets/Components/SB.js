@@ -3,7 +3,7 @@ import {CDBSidebar, CDBSidebarContent, CDBSidebarHeader, CDBSidebarMenu, CDBSide
 import TextField  from '../TextField.png'
 import ListItem  from '../ListItem.png'
 import {Container , Col , Row} from 'react-bootstrap'
-import Grid from '../Grid.png';
+import Grid1 from '../Grid.png';
 
 export default class SB extends React.Component {
 
@@ -11,11 +11,13 @@ export default class SB extends React.Component {
 onDragStart = (e,v) =>{
     e.dataTransfer.dropEffect = "move";
     e.dataTransfer.setData( "text/plain", v )
+    console.log("comp draged");
 }
 
-onDragGrid = (e) =>{
-    e.dataTransfer.dropEffect = "move";
-    e.dataTransfer.setData( "text")
+onDrag = (e,v) =>{
+  e.dataTransfer.dropEffect = "move";
+  e.dataTransfer.setData( "text/plain",v)
+  console.log("grid draged");
 }
 
 
@@ -40,15 +42,15 @@ onDragGrid = (e) =>{
                 <Container>
                   <Row>
                     <Col lg={6}>
-                      <CDBSidebarMenuItem><img src={ListItem} height="40px" draggable="true"  onDragStart={ (e) => this.onDragStart(e,"select")}/></CDBSidebarMenuItem>
+                      <CDBSidebarMenuItem><img alt="ListItem" src={ListItem} height="40px" draggable="true"  onDragStart={ (e) => this.onDragStart(e,"select")}/></CDBSidebarMenuItem>
                     </Col>
                     <Col lg={6}>
-                      <CDBSidebarMenuItem><img src={TextField} height="40px" draggable="true"  onDragStart={ (e) => this.onDragStart(e, "text") }/></CDBSidebarMenuItem>
+                      <CDBSidebarMenuItem><img alt="TextField" src={TextField} height="40px" draggable="true"  onDragStart={ (e) => this.onDragStart(e, "text") }/></CDBSidebarMenuItem>
                     </Col>
                   </Row>
                   <Row>
                     <Col lg={6}>
-                      <CDBSidebarMenuItem><img src={Grid} height="40px" draggable="true"  onDragGrid={ (e) => this.onDragGrid(e)}/></CDBSidebarMenuItem>
+                      <CDBSidebarMenuItem><img alt="Grid" src={Grid1} height="40px" draggable="true"  onDragStart={ (e) => this.onDrag(e,"Grid")}/></CDBSidebarMenuItem>
                     </Col>
                   </Row>
                 </Container>
