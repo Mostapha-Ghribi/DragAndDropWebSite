@@ -8,7 +8,7 @@ export default class Main extends React.Component {
     constructor(props){
         super(props)
         this.state = {
-          main : [],
+          main : {},
         }
         
     }
@@ -23,9 +23,10 @@ export default class Main extends React.Component {
         console.log("grid dropped");
         let {main} = this.state;
         const data = e.dataTransfer.getData("text/plain");
-        console.log(data);
-        main.push(<Grid id={nextId('Section-')} size={4}/>);
+        main[nextId('grid-')] = <Grid id={nextId('Section-')} size={4}/>;
         this.setState({ main });
+        console.log(main);
+
     }
     render(){
         const {main} = this.state;
@@ -40,9 +41,10 @@ export default class Main extends React.Component {
             <Row id={nextId('Row-')}>
         {
            
-           main.map( itm =>{
-            return itm;
-          })    
+           Object.entries(main)
+           .map( ([key, value]) => {
+               return value;
+           } )
         }
         </Row>
         </Container>
