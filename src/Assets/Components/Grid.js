@@ -33,13 +33,13 @@ export default class Grid extends React.Component {
         return;
       }
         e.preventDefault();
+        e.stopPropagation();
         let {Container} = this.state;
-        const data = e.dataTransfer.getData("comp");
+        const data = e.dataTransfer.getData("text/plain");
         console.log(e.dataTransfer.types);
         console.log(data);
         Container.push(<Form><Inputwadia type={data} id={"T"+(Container.length+1)}/></Form>);
         this.setState({ Container });
-        console.log("comp dropped");
     }
  render(){
     const {Container} = this.state; 

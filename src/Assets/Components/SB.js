@@ -14,12 +14,6 @@ onDragStart = (e,v) =>{
     console.log("comp draged");
 }
 
-onDrag = (e,v) =>{
-  e.dataTransfer.dropEffect = "move";
-  e.dataTransfer.setData( "text/plain",v)
-  console.log("grid draged");
-}
-
 
     render() {
         return(
@@ -50,7 +44,10 @@ onDrag = (e,v) =>{
                   </Row>
                   <Row>
                     <Col lg={6}>
-                      <CDBSidebarMenuItem><img alt="Grid" src={Grid1} height="40px" draggable="true"  onDragStart={ (e) => this.onDrag(e,"Grid")}/></CDBSidebarMenuItem>
+                      <CDBSidebarMenuItem><img alt="Grid" src={Grid1} height="40px" draggable="true"  onDragStart={ (e) => this.onDragStart(e,"Grid")}/></CDBSidebarMenuItem>
+                    </Col>
+                    <Col lg={6}>
+                      <CDBSidebarMenuItem><img alt="Grid" src={Grid1} height="40px" draggable="true"  onDragStart={ (e) => this.onDragStart(e,"Row")}/></CDBSidebarMenuItem>
                     </Col>
                   </Row>
                 </Container>

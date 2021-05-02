@@ -13,7 +13,7 @@ const styles = {
     }
 }
 
-export default class Row extends React.Component {
+export default class RowContainer extends React.Component {
 
     constructor(props){
         super(props)
@@ -30,24 +30,26 @@ export default class Row extends React.Component {
 
     onDrop = (e) =>{
         e.preventDefault();
+        e.stopPropagation();
         console.log(e.dataTransfer.types);
         console.log("grid dropped");
         let {main} = this.state;
         const data = e.dataTransfer.getData("text/plain");
-        main[nextId('row-')] = <Grid id={nextId('Section-')} size={4}/>;
+        main[nextId('row-')] = <Grid id={nextId('Griddd-')} size={4}/>;
         this.setState({ main });
         console.log(main);
     }
  render(){
-    const {Container} = this.state; 
+    const {main} = this.state; 
     return (
-    <Col id={this.props.id} md={this.props.size} onDragOver={this.allowDrop} onDrop={this.onDrop} style={styles.Drag}>
+    <Row id={nextId('Row-')} onDragOver={this.allowDrop} onDrop={this.onDrop} style={styles.Drag}>
         {
-                  Container.map( itm =>{
-                    return itm;
-                  })
+                  Object.entries(main)
+                  .map( ([key, value]) => {
+                      return value;
+                  } )
                 }
-    </Col>
+    </Row>
   )}
 }
 

@@ -3,6 +3,11 @@ import Grid from './Grid'
 import NavBar from './NavBar'
 import {Container , Row} from 'react-bootstrap'
 import nextId from "react-id-generator";
+import RowContainer from './Row';
+
+const  mainFile = {
+
+}
 export default class Main extends React.Component {
 
     constructor(props){
@@ -23,7 +28,7 @@ export default class Main extends React.Component {
         console.log("grid dropped");
         let {main} = this.state;
         const data = e.dataTransfer.getData("text/plain");
-        main[nextId('grid-')] = <Grid id={nextId('Section-')} size={4}/>;
+        main[nextId('grid-')] = <RowContainer id={nextId('Section-')}/>;
         this.setState({ main });
         console.log(main);
 
@@ -38,7 +43,6 @@ export default class Main extends React.Component {
         </nav>
         <div id="main" style={{height:'90%', overflow: 'scroll initial', border :"solid 0.5px blue", borderStyle: 'dashed'}} onDragOver={this.allowDropGrid} onDrop={this.onDropGrid}>
         <Container id={nextId('Container-')}>
-            <Row id={nextId('Row-')}>
         {
            
            Object.entries(main)
@@ -46,7 +50,6 @@ export default class Main extends React.Component {
                return value;
            } )
         }
-        </Row>
         </Container>
         </div>
         </div>
