@@ -19,6 +19,7 @@ export default class RowContainer extends React.Component {
         super(props)
         this.state = {
           main : {},
+          type : 4,
         }
         
     }
@@ -34,8 +35,8 @@ export default class RowContainer extends React.Component {
         console.log(e.dataTransfer.types);
         console.log("grid dropped");
         let {main} = this.state;
-        const data = e.dataTransfer.getData("text/plain");
-        main[nextId('row-')] = <Grid id={nextId('Griddd-')} size={4}/>;
+        const size = e.dataTransfer.getData("text/plain");
+        main[nextId('row-')] = <Grid id={nextId('Griddd-')} size={size}/>;
         this.setState({ main });
         console.log(main);
     }
