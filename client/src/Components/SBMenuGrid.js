@@ -1,9 +1,7 @@
 import React from 'react'
 import {CDBSidebar, CDBSidebarContent, CDBSidebarHeader, CDBSidebarMenu, CDBSidebarMenuItem} from 'cdbreact';
-import TextField  from '../TextField.png'
-import ListItem  from '../ListItem.png'
+import TextField  from '../Assets/TextField.png'
 import {Container , Col , Row} from 'react-bootstrap'
-import Grid1 from '../Grid.png';
 export default class SBMenuInput extends React.Component {
 
 onDragStart = (e,v) =>{

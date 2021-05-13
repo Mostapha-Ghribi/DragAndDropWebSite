@@ -1,11 +1,12 @@
 import { useState } from "react";
-import {Avatar, Container , Button , Paper , Typography , Grid, TextField, Icon} from "@material-ui/core";
+import {Avatar, Button , Paper , Typography , Grid, Icon} from "@material-ui/core";
 import useStyles from './styles';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined'
 import Input from "./Input"
 import GoogleLogin from "react-google-login";
 import {useDispatch} from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import {signin , signup} from '../Actions/auth'
 const Auth = () => {
     const initialState = {FirstName : '', LastName :'', Email:'', Password:'', ConfirmPassword:''}
     const [FormData,setFormData] = useState(initialState);

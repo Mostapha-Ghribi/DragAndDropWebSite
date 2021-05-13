@@ -1,8 +1,4 @@
 import React from 'react';
-import Main from "./Main";
-import SB from "./SB"
-import Login from './SignIn'
-import SignUp from './SignUp';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Dashboard from './Dashboard';
 import Auth from './Auth';

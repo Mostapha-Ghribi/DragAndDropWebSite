@@ -57,7 +57,6 @@ export default function PrimarySearchAppBar() {
   const location = useLocation();
 
   useEffect(() => {
-    const token = User?.token;
     setUser(JSON.parse(localStorage.getItem('profile')));
   }, [location]);
   const dispatch = useDispatch();
@@ -128,7 +127,7 @@ export default function PrimarySearchAppBar() {
           aria-haspopup="true"
           color="inherit"
         >
-              <img style={{width:"30px" , height:"30px" , borderRadius: 400/ 2}} src={User.result.imageUrl}/>
+              <img alt="image User" style={{width:"30px" , height:"30px" , borderRadius: 400/ 2}} src={User.result.imageUrl}/>
         </IconButton>
         <p>{User.result.givenName}</p>
       </MenuItem>

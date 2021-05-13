@@ -2,10 +2,10 @@ import {React , useState} from 'react';
 import SBMenuInput from './SBMenuInput';
 import SBMenuGrid from './SBMenuGrid';
 import {CDBSidebar, CDBSidebarContent, CDBSidebarHeader, CDBSidebarMenu, CDBSidebarMenuItem} from 'cdbreact';
-import TextField  from '../TextField.png'
-import ListItem  from '../ListItem.png'
+import TextField  from '../Assets/TextField.png'
+import ListItem  from '../Assets/ListItem.png'
 import {Container , Col , Row} from 'react-bootstrap'
-import Grid1 from '../Grid.png';
+import Grid1 from '../Assets/Grid.png';
 function SB() {
     
       const [SBMenu, setSBMenu] = useState(

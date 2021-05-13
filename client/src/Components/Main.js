@@ -1,13 +1,9 @@
 import React from 'react'
-import Grid from './Grid'
 import NavBar from './NavBar'
-import {Container , Row} from 'react-bootstrap'
+import {Container} from 'react-bootstrap'
 import nextId from "react-id-generator";
 import RowContainer from './Row';
 
-const  mainFile = {
-
-}
 export default class Main extends React.Component {
 
     constructor(props){
@@ -27,7 +23,6 @@ export default class Main extends React.Component {
         console.log(e.dataTransfer.types);
         console.log("grid dropped");
         let {main} = this.state;
-        const data = e.dataTransfer.getData("text/plain");
         main[nextId('grid-')] = <RowContainer id={nextId('Section-')}/>;
         this.setState({ main });
         console.log(main);
