@@ -8,7 +8,7 @@ import {useDispatch} from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import {signin , signup} from '../Actions/auth'
 const Auth = () => {
-    const initialState = {FirstName : '', LastName :'', Email:'', Password:'', ConfirmPassword:''}
+    const initialState = {FirstName : '', LastName :'', Email:'', password:'', ConfirmPassword:''}
     const [FormData,setFormData] = useState(initialState);
     const dispatch = useDispatch();
     const history = useHistory();
@@ -29,7 +29,7 @@ const Auth = () => {
     }
     const switchMode = () => {
         SetIsSignUp((prevSignUp) => !prevSignUp);
-        handleShowPass(false);
+        SetShowPass(false);
     }
 
     const googleSuccess = async (res) =>{
@@ -69,7 +69,7 @@ const Auth = () => {
                             )
                         }
                         <Input name="Email" label="email Adress" handleChange={handleChange} type="email"/>
-                        <Input name="Password" label="password" handleChange={handleChange}  type={ShowPass ? "text" : "password"} handleShowPass={handleShowPass} />
+                        <Input name="password" label="password" handleChange={handleChange}  type={ShowPass ? "text" : "password"} handleShowPass={handleShowPass} />
                         {IsSignUp && <Input name="ConfirmPassword" label="Confirm Password" handleChange={handleChange} type="password" />}
                     </Grid>
                     <GoogleLogin
