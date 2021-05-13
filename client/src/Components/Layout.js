@@ -5,6 +5,7 @@ import Login from './SignIn'
 import SignUp from './SignUp';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Dashboard from './Dashboard';
+import Auth from './Auth';
 
 
 function Layout(props) {
@@ -12,11 +13,8 @@ function Layout(props) {
             <div id="body" style={{display: "flex"}}>
                 <BrowserRouter>
                     <Switch>
-                        <Route exact path="/SignIn">
-                            <Login />
-                        </Route>
-                        <Route path="/SignUp">
-                            <SignUp/>
+                        <Route exact path="/Auth">
+                            <Auth/>
                         </Route>
                         <Route path="/Dashboard">
                             <Dashboard/>

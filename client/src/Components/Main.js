@@ -37,7 +37,7 @@ export default class Main extends React.Component {
         const {main} = this.state;
     return (
         <React.Fragment>
-        <div id="block" style={{display: 'block' ,width:'100%'}}>
+        <div id="block" style={{display: 'block' ,width:'1077px'}}>
         <nav id="nav">
         <NavBar/>
         </nav>
