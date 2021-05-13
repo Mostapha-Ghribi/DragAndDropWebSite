@@ -63,7 +63,7 @@ export default function PrimarySearchAppBar() {
   const history = useHistory();
   const logout = () => {
     dispatch({type:'LOGOUT'});
-    history.push('/Auth');
+    history.push('/');
     setUser(null);
   }
 

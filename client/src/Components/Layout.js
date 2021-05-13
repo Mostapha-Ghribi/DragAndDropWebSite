@@ -9,7 +9,7 @@ function Layout(props) {
             <div id="body" style={{display: "flex"}}>
                 <BrowserRouter>
                     <Switch>
-                        <Route exact path="/Auth">
+                        <Route exact path="/">
                             <Auth/>
                         </Route>
                         <Route path="/Dashboard">
