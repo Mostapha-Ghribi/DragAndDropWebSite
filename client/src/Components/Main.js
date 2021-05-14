@@ -3,22 +3,19 @@ import NavBar from './NavBar'
 import {Container} from 'react-bootstrap'
 import nextId from "react-id-generator";
 import RowContainer from './Row';
+import useStyles from './styles';
 
-export default class Main extends React.Component {
+export default function Main() {
 
-    constructor(props){
-        super(props)
-        this.state = {
-          main : {},
-        }
-        
-    }
+const main = {};
+const classes = useStyles();
 
-    allowDropGrid = ev =>{
+
+    const allowDropGrid = ev =>{
         ev.preventDefault();
     }
 
-    onDropGrid = (e) =>{
+    const onDropGrid = (e) =>{
         e.preventDefault();
         console.log(e.dataTransfer.types);
         console.log("grid dropped");
@@ -28,15 +25,11 @@ export default class Main extends React.Component {
         console.log(main);
 
     }
-    render(){
-        const {main} = this.state;
     return (
         <React.Fragment>
-        <div id="block" style={{display: 'block' ,width:'1077px'}}>
-        <nav id="nav">
-        <NavBar/>
-        </nav>
-        <div id="main" style={{height:'90%', overflow: 'scroll initial', border :"solid 0.5px blue", borderStyle: 'dashed'}} onDragOver={this.allowDropGrid} onDrop={this.onDropGrid}>
+        <main className={classes.content} >
+        <div className={classes.toolbar} />
+        <section onDragOver={allowDropGrid} onDrop={onDropGrid} className={classes.mainSection}>
         <Container id={nextId('Container-')}>
         {
            
@@ -46,8 +39,8 @@ export default class Main extends React.Component {
            } )
         }
         </Container>
-        </div>
-        </div>
+        </section>
+      </main>
         </React.Fragment>
-    )}
+    )
 }

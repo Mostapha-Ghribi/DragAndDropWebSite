@@ -1,6 +1,30 @@
 import { makeStyles } from '@material-ui/core/styles';
 
 export default makeStyles((theme) => ({
+  toolbar: {  
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'flex-end',
+    ...theme.mixins.toolbar,
+  },
+  content: {
+    flexGrow: 1,
+    padding: theme.spacing(3),
+  },
+  mainSection:{
+    height: "85%",
+    width: "92%",
+    height: "85vh",
+    width: "92vw",
+    margin: "0",
+    borderWidth:1,
+    borderStyle: 'dashed',
+    borderColor:'blue',
+    position : "fixed",
+  },
+  rootMain: {
+    display: 'flex',
+  },
   paper: {
     marginTop: theme.spacing(1),
     marginBottom : theme.spacing(1),

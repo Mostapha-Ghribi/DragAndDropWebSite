@@ -1,19 +1,18 @@
 import React from 'react';
 import Main from "./Main";
-import SB from "./SB"
+import SB from "./SB";
+import useStyles from './styles';
 
 
 
 const Dashboard = () => {
-    return (
-        <div style={{display: "flex"}}>
-        <SB/>
-        <div style={{display: "flex"}}>
+  const classes = useStyles();
 
-      <Main/>
+    return (
+      <div className={classes.rootMain}>
+        <SB/>
+        <Main/>
       </div>
-    </div>
-        
     );
 }
 
