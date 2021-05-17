@@ -7,7 +7,7 @@ export const HeaderComp = () => {
     const classes = head();
     return (
         <nav className={classes.nav}>
-            <Button onClick={} style={{display: 'flex',
+            <Button style={{display: 'flex',
                  marginLeft:"40%",
                  fontSize:30,}}><AddBoxIcon style={{color : "green",fontSize:30}} />Add Header</Button>
                  
