@@ -11,7 +11,6 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
 import {useDispatch} from 'react-redux';
@@ -23,7 +22,16 @@ import Badge from '@material-ui/core/Badge';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import NotificationsIcon from '@material-ui/icons/Notifications';
-import { Header } from './SideBarComponents/Header';
+import { SectioningTags } from './SideBarComponents/Section Tags/SectioningTags';
+import ViewCompactIcon from '@material-ui/icons/ViewCompact';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import {BackArrow} from './SideBarComponents/BackArrow'
+import { FormsInputs } from './SideBarComponents/Forms and Input/FormsInputs';
+import LowPriorityIcon from '@material-ui/icons/LowPriority';
+
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
@@ -92,7 +100,38 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function SB() {
-    const [SBMenu,setSBMenu] = useState(<DefaultSB/>)
+    const DefaultMenu = () => {
+      return(
+      <>
+      <List>
+        <ListItem button key={"Sectioning Tags"} onClick={() => setSBMenu(
+        <>
+        <BackArrow Menu={DefaultMenu} name="Main Menu" setSBMenu={setSBMenu}/>
+        <SectioningTags Menu={setSBMenu} name="Sectioning Tags" MainMenu={DefaultMenu}/>
+        </>
+        )}>
+          <ListItemIcon><ViewCompactIcon/></ListItemIcon>
+          <ListItemText primary={"Sectioning Tags"} />
+          <ListItemIcon style={{marginRight : "-30px"}}><LowPriorityIcon/></ListItemIcon>
+        </ListItem>
+      </List>
+      <List>
+        <ListItem button key={"Forms and Input"} onClick={() => setSBMenu(
+        <>
+        <BackArrow Menu={DefaultMenu} name="Main Menu" setSBMenu={setSBMenu}/>
+        <FormsInputs Menu={setSBMenu} name="Forms and Input" MainMenu={DefaultMenu}/>
+        </>
+        )}>
+          <ListItemIcon><ViewCompactIcon/></ListItemIcon>
+          <ListItemText primary={"Forms and Input"} />
+          <ListItemIcon style={{marginRight : "-30px"}}><LowPriorityIcon/></ListItemIcon>
+
+        </ListItem>
+      </List>
+      <Divider />
+    </>)
+    }
+    const [SBMenu,setSBMenu] = useState(DefaultMenu)
     const [User , setUser] = useState(JSON.parse(localStorage.getItem('profile')));
     const location = useLocation();
   
@@ -221,7 +260,6 @@ export default function SB() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap>
-            {console.log(User.result)}
           </Typography>
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
@@ -233,7 +271,7 @@ export default function SB() {
               onClick={handleProfileMenuOpen}
               color="inherit"
             >
-              <img alt="image User" style={{width:"30px" , height:"30px" , borderRadius: 400/ 2}} src={User.result.imageUrl=="undefined"?<IconClient/>:User.result.imageUrl}/>
+              <img alt="image User" style={{width:"30px" , height:"30px" , borderRadius: 400/ 2}} src={User.result.imageUrl}/>
             </IconButton>
           </div>
           <div className={classes.sectionMobile}>
@@ -272,7 +310,7 @@ export default function SB() {
         {[...Array(15)].map(() =>
     <Divider/>
   )}
-      <Header/>
+      {SBMenu}
       </Drawer>
     </div>
   );

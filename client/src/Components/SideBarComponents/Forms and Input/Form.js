@@ -5,14 +5,16 @@ import ListItemText from '@material-ui/core/ListItemText';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import Divider from '@material-ui/core/Divider';
+import PanToolIcon from '@material-ui/icons/PanTool';
 
-export const Header = () => {
+export const Form = () => {
     return (
         <>
         <List>
-          <ListItem button key={"Sectioning Tags"} onClick={this.handleClick}>
+          <ListItem button key={"F1"}>
             <ListItemIcon><ViewCompactIcon/></ListItemIcon>
-            <ListItemText primary={"Sectioning Tags"} />
+            <ListItemText primary={"FormExample..."} />
+            <ListItemIcon style={{marginRight : "-30px"}}><PanToolIcon/></ListItemIcon>
           </ListItem>
         </List>
         <Divider />

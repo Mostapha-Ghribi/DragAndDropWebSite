@@ -12,19 +12,19 @@ export const Header = () => {
         <List>
           <ListItem button key={"Sectioning Tags"}>
             <ListItemIcon><ViewCompactIcon/></ListItemIcon>
-            <ListItemText primary={"Header"} />
+            <ListItemText primary={"Header1"} />
           </ListItem>
         </List>
         <List>
           <ListItem button key={"Sectioning Tags"}>
             <ListItemIcon><ViewCompactIcon/></ListItemIcon>
-            <ListItemText primary={"Footer"} />
+            <ListItemText primary={"Header2"} />
           </ListItem>
         </List>
         <List>
           <ListItem button key={"Sectioning Tags"}>
             <ListItemIcon><ViewCompactIcon/></ListItemIcon>
-            <ListItemText primary={"Section"} />
+            <ListItemText primary={"Header3"} />
           </ListItem>
         </List>
         <Divider />
