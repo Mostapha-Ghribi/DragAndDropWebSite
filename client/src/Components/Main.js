@@ -4,6 +4,7 @@ import {Container} from 'react-bootstrap'
 import nextId from "react-id-generator";
 import RowContainer from './Row';
 import useStyles from './styles';
+import { HeaderComp } from './HeaderComp';
 
 export default function Main() {
 
@@ -30,6 +31,7 @@ const classes = useStyles();
         <main className={classes.content} >
         <div className={classes.toolbar} />
         <section onDragOver={allowDropGrid} onDrop={onDropGrid} className={classes.mainSection}>
+        <HeaderComp/>
         <Container id={nextId('Container-')}>
         {
            

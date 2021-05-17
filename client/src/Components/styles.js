@@ -1,6 +1,15 @@
 import { makeStyles } from '@material-ui/core/styles';
 
+
 export default makeStyles((theme) => ({
+  nav:{
+    display : "flex",
+    height:"100px",
+    borderWidth:1,
+    borderStyle: 'dashed',
+    borderColor:'red',
+  
+  },
   toolbar: {  
     display: 'flex',
     alignItems: 'center',
@@ -61,4 +70,36 @@ export default makeStyles((theme) => ({
     backgroundSize: 'cover',
     backgroundPosition: 'center',
   },
+  wrapper: {
+        margin: theme.spacing(2),
+        position: 'relative',
+      },
+      buttonSuccess: {
+        backgroundColor: theme.palette.success.main,
+        '&:hover': {
+          backgroundColor: theme.palette.success.main,
+        },
+      },
+      buttonProgress: {
+        color: theme.palette.success.main,
+        position: 'absolute',
+        top: '50%',
+        left: '50%',
+        marginTop: -12,
+        marginLeft: -12,
+      },
+      buttonFail: {
+        backgroundColor: theme.palette.success.dark,
+        '&:hover': {
+          backgroundColor: theme.palette.success.dark,
+        },
+      },
+      buttonFail: {
+        color: theme.palette.success.dark,
+        position: 'absolute',
+        top: '50%',
+        left: '50%',
+        marginTop: -12,
+        marginLeft: -12,
+      },
 }));
