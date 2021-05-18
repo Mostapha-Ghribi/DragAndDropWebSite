@@ -263,6 +263,9 @@ export default function SB() {
           </Typography>
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
+          <Typography className={classes.title} style={{marginTop:"10px"}} variant="h6" noWrap>
+            {User.result.name}
+          </Typography>
             <IconButton
               edge="end"
               aria-label="account of current user"

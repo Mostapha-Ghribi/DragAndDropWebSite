@@ -1,35 +1,26 @@
-import React, {useCallback} from 'react'
+import React, {useState} from 'react'
 import ViewCompactIcon from '@material-ui/icons/ViewCompact';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import Divider from '@material-ui/core/Divider';
-import {Header} from './Header';
-import { BackArrow } from '../BackArrow';
 import LowPriorityIcon from '@material-ui/icons/LowPriority';
-
-export const SectioningTags = (props) => {
-    
+import KeyboardArrowRightIcon from '@material-ui/icons/KeyboardArrowRight';
+import {Nav1} from './NavBarExamples/Nav1';
+import Model from '../../Model';
+export const SectioningTags = () => {
+  const [open, setOpen] = useState(false);
+  const [content, setContent] = useState();
     return (
         <>
         <List>
-          <ListItem button key={"Sectioning Tags"}  onClick={() => props.Menu(
-              <>
-              <BackArrow Menu={
-                <>
-                  <BackArrow Menu={props.MainMenu} name="Main Menu" setSBMenu={props.Menu}/>
-                  <SectioningTags Menu={props.Menu}/>
-                </>
-              } name="Sectioning Tags" setSBMenu={props.Menu}/>
-              <Header/>
-              </>
-            )}
+          <ListItem button key={"Sectioning Tags"}  onClick={() => {setOpen(true); setContent(<Nav1/>)}}
           
           >
             <ListItemIcon><ViewCompactIcon/></ListItemIcon>
             <ListItemText primary={"Header"}/>
-            <ListItemIcon style={{marginRight : "-30px"}}><LowPriorityIcon/></ListItemIcon>
+            <ListItemIcon style={{marginRight : "-30px"}}><KeyboardArrowRightIcon/></ListItemIcon>
 
           </ListItem>
         </List>
@@ -49,6 +40,7 @@ export const SectioningTags = (props) => {
 
           </ListItem>
         </List>
+        <Model open={open} Hide={() => setOpen(false)} Content={content}/>
         <Divider />
         </>
     )

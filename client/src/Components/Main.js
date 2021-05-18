@@ -1,18 +1,18 @@
-import React from 'react'
+import React , {useState} from 'react'
 import NavBar from './NavBar'
 import {Container} from 'react-bootstrap'
 import nextId from "react-id-generator";
 import RowContainer from './Row';
 import useStyles from './styles';
 import { HeaderComp } from './HeaderComp';
+import Model from './Model';
 
 export default function Main() {
 
 const main = {};
 const classes = useStyles();
 
-
-    const allowDropGrid = ev =>{
+const allowDropGrid = ev =>{
         ev.preventDefault();
     }
 
@@ -24,8 +24,8 @@ const classes = useStyles();
         main[nextId('grid-')] = <RowContainer id={nextId('Section-')}/>;
         this.setState({ main });
         console.log(main);
-
     }
+
     return (
         <React.Fragment>
         <main className={classes.content} >
