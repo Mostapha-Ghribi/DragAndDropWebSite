@@ -16,7 +16,6 @@ import CheckIcon from '@material-ui/icons/Check';
 import SaveIcon from '@material-ui/icons/Save';
 const Auth = () => {
     
-    //const UserExist = JSON.stringify(JSONObject).includes("profile");
     const CheckLoginStatus = () =>{
         axios.get("http://localhost:5000/user/signin",{withCredentials : true}).then(res =>{
             console.log("logged in?",res);
@@ -79,6 +78,7 @@ const Auth = () => {
 
     const handleChange = (e) => {
         setFormData({... FormData,[e.target.name] : e.target.value});
+        CheckLoginStatus();
     }
 
     const switchMode = () => {
@@ -102,7 +102,6 @@ const Auth = () => {
         console.log("failed to sign in"); 
     }
     return(
-        <>
         <Grid container component="main" className={classes.root}>
         <Grid item xs={12} sm={4} md={7} className={classes.image} />
         <Grid item xs={12} sm={8} md={5} >
@@ -173,7 +172,6 @@ const Auth = () => {
             </Paper>
             </Grid>
         </Grid>
-        </>
     )
 }
 export default Auth;

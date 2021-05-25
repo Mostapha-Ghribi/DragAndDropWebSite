@@ -1,5 +1,6 @@
 import React ,{useState , useEffect} from 'react';
 import clsx from 'clsx';
+import Main from "./Main";
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import AppBar from '@material-ui/core/AppBar';
@@ -31,6 +32,10 @@ import ListItem from '@material-ui/core/ListItem';
 import {BackArrow} from './SideBarComponents/BackArrow'
 import { FormsInputs } from './SideBarComponents/Forms and Input/FormsInputs';
 import LowPriorityIcon from '@material-ui/icons/LowPriority';
+import Button from '@material-ui/core/Button';
+import AddBoxIcon from '@material-ui/icons/AddBox';
+import {Nav1} from './SideBarComponents/Section Tags/NavBarExamples/Nav1';
+import Model from './Model';
 
 const drawerWidth = 240;
 
@@ -100,15 +105,41 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function SB() {
+  const [openM, setOpenM] = useState(false);
+  const [content, setContent] = useState();
+
+  const handleDefaultHeader = () =>{
+      //   props.Drawer(true);
+      //   props.SetSB(props.contentSB);
+         setOpenM(true);
+         setContent(<Nav1 setter={setHeader} closeModel={setOpenM}/>);
+     }
+  const DefaultHeader = () => {
+      return(
+          <Button style={{display: 'flex',
+           marginLeft:"40%",
+           fontSize:30,}}><AddBoxIcon style={{color : "green",fontSize:30}} onClick={handleDefaultHeader}/>Add Header</Button>
+      )
+}
+const DefaultMainSection = () => {
+  return(
+      <h1>Hello</h1>
+  )
+} 
+  const [Header , setHeader] = React.useState(DefaultHeader);
+  const [Section , setSection] = React.useState(DefaultMainSection);
+
+
     const DefaultMenu = () => {
       return(
       <>
       <List>
         <ListItem button key={"Sectioning Tags"} onClick={() => setSBMenu(
-        <>
-        <BackArrow Menu={DefaultMenu} name="Main Menu" setSBMenu={setSBMenu}/>
-        <SectioningTags Menu={setSBMenu} name="Sectioning Tags" MainMenu={DefaultMenu}/>
-        </>
+          <>
+          <BackArrow Menu={DefaultMenu} name="Main Menu" setSBMenu={setSBMenu}/>
+          <SectioningTags Menu={setSBMenu} name="Sectioning Tags" MainMenu={DefaultMenu} setter={setHeader} closeModel={setOpenM}/>
+          {console.log("done !")}
+          </>
         )}>
           <ListItemIcon><ViewCompactIcon/></ListItemIcon>
           <ListItemText primary={"Sectioning Tags"} />
@@ -238,7 +269,9 @@ export default function SB() {
     setOpen(false);
   };
 
+  
   return (
+    <>
     <div className={classes.root}>
       <CssBaseline />
       <AppBar
@@ -316,5 +349,9 @@ export default function SB() {
       {SBMenu}
       </Drawer>
     </div>
+    <Main Drawer={setOpen} SetSB={setSBMenu} Header={Header} Section={Section}/>
+    <Model open={openM} Hide={() => setOpenM(false)} Content={content}/>
+
+    </>
   );
-}
+} 

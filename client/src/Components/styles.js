@@ -4,11 +4,19 @@ import { makeStyles } from '@material-ui/core/styles';
 export default makeStyles((theme) => ({
   nav:{
     display : "flex",
-    height:"100px",
+    height:"60px",
+  },
+  navBorder:{
     borderWidth:1,
     borderStyle: 'dashed',
     borderColor:'red',
-  
+  },
+  SectionMain:{
+    display : "flex",
+    height :"300px",
+    borderWidth:1,
+    borderStyle: 'dashed',
+    borderColor:'red',
   },
   toolbar: {  
     display: 'flex',

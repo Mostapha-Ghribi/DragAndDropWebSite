@@ -8,6 +8,7 @@ import Divider from '@material-ui/core/Divider';
 import { BackArrow } from '../BackArrow';
 import {Form} from './Form';
 import LowPriorityIcon from '@material-ui/icons/LowPriority';
+import {InputCompSB} from './InputCompSB';
 export const FormsInputs = (props) => {
     
     return (
@@ -19,6 +20,7 @@ export const FormsInputs = (props) => {
                 <>
                   <BackArrow Menu={props.MainMenu} name="Main Menu" setSBMenu={props.Menu}/>
                   <FormsInputs Menu={props.Menu}/>
+                
                 </>
               } name="Form" setSBMenu={props.Menu}/>
               <Form />
@@ -32,7 +34,18 @@ export const FormsInputs = (props) => {
           </ListItem>
         </List>
         <List>
-          <ListItem button key={"Input"}>
+          <ListItem button key={"Input"} onClick={() => props.Menu(
+              <>
+              <BackArrow Menu={
+                <>
+                  <BackArrow Menu={props.MainMenu} name="Main Menu" setSBMenu={props.Menu}/>
+                  <FormsInputs Menu={props.Menu}/>
+                </>
+              } name="Input" setSBMenu={props.Menu}/>
+              <InputCompSB />
+              </>
+            )}
+          >
             <ListItemIcon><ViewCompactIcon/></ListItemIcon>
             <ListItemText primary={"Input"} />
             <ListItemIcon style={{marginRight : "-30px"}}><LowPriorityIcon/></ListItemIcon>

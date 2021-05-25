@@ -7,6 +7,8 @@ import InputBase from '@material-ui/core/InputBase';
 import { fade, makeStyles } from '@material-ui/core/styles';
 import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
+import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
+import EditIcon from '@material-ui/icons/Edit';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -65,9 +67,13 @@ const useStyles = makeStyles((theme) => ({
 
 export const N1 = () => {
   const classes = useStyles();
-
+  const EditDelete = () =>{
+    return(
+      <div style={{position : "fixed", top : 0, zIndex : 999999}}><img src={<DeleteForeverIcon/>}/></div>
+    )
+  }
   return (
-    <div className={classes.root}>
+    <div className={classes.root} onMouseEnter={EditDelete}>
       <AppBar position="static">
         <Toolbar>
           <IconButton
