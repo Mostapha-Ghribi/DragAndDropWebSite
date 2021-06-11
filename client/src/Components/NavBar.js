@@ -1,12 +1,7 @@
 import React , {useState, useEffect} from 'react';
 import {makeStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography';
-import MenuItem from '@material-ui/core/MenuItem';
-import Menu from '@material-ui/core/Menu';
-import MoreIcon from '@material-ui/icons/MoreVert';
+import {AppBar, Toolbar, IconButton, Typography, MenuItem, Menu} from '@material-ui/core';
+import {MoreIcon} from '@material-ui/icons';
 import {useDispatch} from 'react-redux';
 import {useHistory , useLocation} from 'react-router-dom';
 
@@ -55,6 +50,7 @@ const useStyles = makeStyles((theme) => ({
 export default function PrimarySearchAppBar() {
   const [User , setUser] = useState(JSON.parse(localStorage.getItem('profile')));
   const location = useLocation();
+
 
   useEffect(() => {
     setUser(JSON.parse(localStorage.getItem('profile')));

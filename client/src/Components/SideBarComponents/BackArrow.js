@@ -1,8 +1,5 @@
 import React from 'react';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
+import {ListItemIcon, ListItemText, List, ListItem} from '@material-ui/core';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 
 export const BackArrow = (props) =>{

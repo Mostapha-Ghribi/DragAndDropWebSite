@@ -4,7 +4,7 @@ import Dashboard from './Dashboard';
 import Auth from './Auth';
 
 
-function Layout(props) {
+function Layout() {
     return (
             <div id="body" style={{display: "flex"}}>
                 <BrowserRouter>
@@ -12,7 +12,7 @@ function Layout(props) {
                         <Route exact path="/">
                             <Auth/>
                         </Route>
-                        <Route path="/Dashboard">
+                        <Route path="/home">
                             <Dashboard/>
                         </Route>
                     </Switch>

@@ -1,5 +1,5 @@
 import React from 'react';
-import Modal from '@material-ui/core/Modal';
+import {Modal} from '@material-ui/core';
 
 
 export default function SimpleModal({Hide,open,Content}) {
@@ -7,7 +7,6 @@ export default function SimpleModal({Hide,open,Content}) {
 
   return (
       <>
-      {console.log("open the fkin model")}
       <Modal
         open={open}
         onClose={Hide}

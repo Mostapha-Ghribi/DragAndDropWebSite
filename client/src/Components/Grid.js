@@ -5,7 +5,7 @@ import Form from '../Form'
 
 const styles = {
     Drag : {
-        width: 'auto',
+        width: '250px',
         height: '250px',
       border: '1px solid black',
       flex: 1,

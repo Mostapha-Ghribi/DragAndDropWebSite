@@ -13,7 +13,7 @@ export default makeStyles((theme) => ({
   },
   SectionMain:{
     display : "flex",
-    height :"300px",
+    height :"500px",
     borderWidth:1,
     borderStyle: 'dashed',
     borderColor:'red',
@@ -31,8 +31,6 @@ export default makeStyles((theme) => ({
   mainSection:{
     height: "85%",
     width: "92%",
-    height: "85vh",
-    width: "92vw",
     margin: "0",
     borderWidth:1,
     borderStyle: 'dashed',

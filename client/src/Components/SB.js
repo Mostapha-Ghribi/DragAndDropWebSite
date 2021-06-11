@@ -14,6 +14,7 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
+import PanToolIcon from '@material-ui/icons/PanTool';
 import {useDispatch} from 'react-redux';
 import {useHistory , useLocation} from 'react-router-dom';
 import IconClient from '../Assets/IconClient.png';
@@ -108,6 +109,11 @@ export default function SB() {
   const [openM, setOpenM] = useState(false);
   const [content, setContent] = useState();
 
+const onDragStart = (e,v) =>{
+    e.dataTransfer.dropEffect = "move";
+    e.dataTransfer.setData( "text/plain", v )
+    console.log("comp draged");
+}
   const handleDefaultHeader = () =>{
       //   props.Drawer(true);
       //   props.SetSB(props.contentSB);
@@ -150,12 +156,20 @@ const DefaultMainSection = () => {
         <ListItem button key={"Forms and Input"} onClick={() => setSBMenu(
         <>
         <BackArrow Menu={DefaultMenu} name="Main Menu" setSBMenu={setSBMenu}/>
-        <FormsInputs Menu={setSBMenu} name="Forms and Input" MainMenu={DefaultMenu}/>
+        <FormsInputs Menu={setSBMenu} name="Forms and Input" MainMenu={DefaultMenu} closeModel={setOpenM}/>
         </>
         )}>
           <ListItemIcon><ViewCompactIcon/></ListItemIcon>
           <ListItemText primary={"Forms and Input"} />
           <ListItemIcon style={{marginRight : "-30px"}}><LowPriorityIcon/></ListItemIcon>
+
+        </ListItem>
+      </List>
+      <List>
+        <ListItem button key={"Grid"} draggable="true"  onDragStart={ (e) => onDragStart(e,"text")}>
+          <ListItemIcon><ViewCompactIcon/></ListItemIcon>
+          <ListItemText primary={"Grid"} />
+          <ListItemIcon style={{marginRight : "-30px"}}><PanToolIcon/></ListItemIcon>
 
         </ListItem>
       </List>
@@ -260,7 +274,6 @@ const DefaultMainSection = () => {
 
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
-
   const handleDrawerOpen = () => {
     setOpen(true);
   };
@@ -268,7 +281,6 @@ const DefaultMainSection = () => {
   const handleDrawerClose = () => {
     setOpen(false);
   };
-
   
   return (
     <>
